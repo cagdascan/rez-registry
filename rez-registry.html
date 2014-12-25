@@ -1,0 +1,102 @@
+<head>
+  <title>rez-registry</title>
+</head>
+
+<body>
+  <h1>Reztoran</h1>
+  {{> inputForm}}
+</body>
+
+<template name="restaurants">
+  {{#each restaurant}}
+    <div>{{name}}</div>
+  {{/each}}
+</template>
+
+<template name="inputForm">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Kullanici e-posta</label>
+      <input type="email" class="form-control" id="email" placeholder="email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Kullanici sifre</label>
+      <input type="password" class="form-control" id="parola" placeholder="parola">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Reztoran Adi:</label>
+      <input type="text" class="form-control" id="name" placeholder="Restoran adi">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Reztoran Adres</label>
+      <input type="text" class="form-control" id="adres" placeholder="Restoran adresi">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Sehir:</label>
+      <input type="text" class="form-control" id="sehir" placeholder="Sehir">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Semt:</label>
+      <input type="text" class="form-control" id="semt" placeholder="Semt">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Aciklama:</label>
+      <input type="text" class="form-control" id="aciklama" placeholder="Aciklama">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Telefon:</label>
+      <input type="text" class="form-control" id="telefon" placeholder="telefon">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Web:</label>
+      <input type="text" class="form-control" id="web" placeholder="Web adresi">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mail:</label>
+      <input type="text" class="form-control" id="rmail" placeholder="iletisim e-maili">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Lokasyon:</label>
+      <input type="text" class="form-control" id="long" placeholder="long">
+      <input type="text" class="form-control" id="lat" placeholder="lat">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Menu:</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <button>Upload</button>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Galeri:</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <button>Upload</button>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Logo:</label>
+      <div class="container">
+        <img id="imgsrc" src="">
+        <img id="imgcrop" src="">
+      </div>
+      <input type="file" onchange="readURL(this)" class="form-control" id="file" placeholder="Password">
+      <button id="cropButton">Crop</button>
+      <button id="uploadButton">Upload</button>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Standart Paket:</label>
+      <input type="checkbox"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">SMS:</label>
+      <input type="checkbox"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">FourSquare ID:</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Slug:</label>
+      <input type="text" class="form-control" id="slug" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-default" id="done">Submit</button>
+  </div>
+</template>
