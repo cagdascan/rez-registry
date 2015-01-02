@@ -31,4 +31,4 @@ Template.inputForm.helpers({
   'logoImage': function () {
     return Session.get('logoImage');
   }
-})
+});

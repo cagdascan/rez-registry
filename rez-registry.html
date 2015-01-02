@@ -1,17 +1,47 @@
 <head>
   <title>rez-registry</title>
+  <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/core-menu/core-submenu.html">
+  <link rel="import" href="bower_components/core-item/core-item.html">
+  <link rel="import" href="bower_components/core-icon/core-icon.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-icons/maps-icons.html">
 </head>
 
 <body>
-  <h1>Reztoran</h1>
-  {{> inputForm}}
+  <core-scaffold>
+    <core-header-panel navigation flex mode="seamed">
+      <core-toolbar>Reztoran</core-toolbar>
+      {{> menu}}
+    </core-header-panel>
+    <div tool>Title</div>
+    {{> mainArea}}
+  </core-scaffold>
 </body>
 
-<template name="restaurants">
+
+<template name="menu">
+  <core-menu theme="core-light-theme" on-core-select="{{selectAction}}">
+    <core-submenu icon="maps:local-restaurant" label="Tüm Restoranlar">
+      {{> restaurantList}}
+    </core-submenu>
+    <core-submenu icon="add" label="Restoran ekle" class="addRestaurant">
+    </core-submenu>
+  </core-menu>
+</template>
+
+<template name="mainArea">
+  <div>{{> inputForm}}</div>
+</template>
+
+
+<template name="restaurantList">
   {{#each restaurant}}
-    <div>{{name}}</div>
+    <core-item label="{{name}}" class="singleRestaurant"></core-item>
   {{/each}}
 </template>
+
 
 <template name="inputForm">
   <div class="col-md-8">

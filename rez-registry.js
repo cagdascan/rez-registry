@@ -4,7 +4,9 @@ User_Gastro = new Meteor.Collection('user_gastro');
 
 if (Meteor.isServer) {
 
-  
+  Meteor.publish('restaurantList', function () {
+    return Restaurant.find({}, {fields: {name: 1}});
+  });
 
   Restaurant.allow({
     insert: function (userId, doc) {
@@ -54,11 +56,24 @@ if (Meteor.isServer) {
 
 if (Meteor.isClient) {
 
-  Template.restaurants.helpers({
+  Polymer({
+    selectAction: function(e, detail) {
+      if (detail.isSelected) {
+        var selectedItem = detail.item;
+        console.log(selectedItem);
+      }
+      // console.log(e)
+    }
+  });
+
+  Meteor.subscribe('restaurantList');
+
+  Template.restaurantList.helpers({
     'restaurant': function () {
       return Restaurant.find();
     }
   });
+
 
   Template.inputForm.events({
     'click button#done': function () {
